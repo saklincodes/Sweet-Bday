@@ -8,7 +8,7 @@
   <em>Crafted with pure Vanilla JavaScript, hardware-accelerated CSS3, tactile 3D interactions, and love.</em>
 </p>
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-ff69b4?style=for-the-badge&logo=githubpages&logoColor=white)](https://saklincodes.github.io/Sweet-Bday/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://sweet-bday.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
@@ -18,7 +18,8 @@
 
 <br />
 
-[Explore Demo](https://saklincodes.github.io/Sweet-Bday/) • [Key Features](#-interactive-scenes--features) • [Customization Guide](#-customization-guide) • [Quick Start](#-quick-start) • [Report Bug](https://github.com/saklincodes/Sweet-Bday/issues)
+[Explore Demo](https://sweet-bday.vercel.app) • [Key Features](#-interactive-scenes--features) • [Customization Guide](#-customization-guide) • [Quick Start](#-quick-start) • [Report Bug](https://github.com/saklincodes/Sweet-Bday/issues)
+
 
 ---
 
@@ -217,11 +218,23 @@ cd Sweet-Bday
 
 ## 🌐 Deploy to GitHub Pages
 
-Deploy your personalized celebration link in 30 seconds for free:
+### Option A: Vercel (Recommended — Live Production)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsaklincodes%2FSweet-Bday)
 
+Sweet-Bday is live in production on Vercel:
+```
+https://sweet-bday.vercel.app
+```
+To deploy your own copy via Vercel CLI:
+```bash
+npm i -g vercel
+vercel --prod
+```
+
+### Option B: GitHub Pages
 1. Push this repository to your GitHub account.
 2. Go to your repository on GitHub: `Settings` > `Pages`.
-3. Under **Branch**, select `main` (or `master`) and folder `/ (root)`.
+3. Under **Branch**, select `main` and folder `/ (root)`.
 4. Click **Save**.
 5. Your live link will be ready at:
    ```
