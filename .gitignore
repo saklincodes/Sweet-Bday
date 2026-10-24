@@ -1,0 +1,22 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor directories and files
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Node / Build artifacts
+node_modules/
+dist/
+*.log

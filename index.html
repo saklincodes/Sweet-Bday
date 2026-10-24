@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  🎀 Project: Sweet-Bday — Interactive Celebration Reel
+  👤 Author: Saklin
+  📸 Instagram: @saklin_01 (https://instagram.com/saklin_01)
+  💻 GitHub: @saklincodes (https://github.com/saklincodes)
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Saklin (@saklin_01)">
+  <meta name="description" content="Sweet-Bday | Interactive Birthday Celebration Reel & Music Experience by Saklin (@saklin_01)">
+  <title>Happy Birthday</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:wght@800;900&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Main Reel Container -->
+  <main class="reel-container">
+    
+
+
+    <!-- Page 1: Hero Intro & Music Player -->
+    <section class="card-page intro-page" id="page-1">
+      
+      <!-- Page 1 Background Texture Lines & Aesthetic Accents -->
+      <div class="bg-texture-lines" aria-hidden="true"></div>
+      <div class="corner-tape tape-tl" aria-hidden="true"></div>
+      <div class="corner-tape tape-br" aria-hidden="true"></div>
+      <div class="decor-line decor-line-left" aria-hidden="true"></div>
+      <div class="decor-line decor-line-right" aria-hidden="true"></div>
+      <div class="floating-doodle doodle-1" aria-hidden="true">✦</div>
+      <div class="floating-doodle doodle-2" aria-hidden="true">♡</div>
+      <div class="floating-doodle doodle-3" aria-hidden="true">✧</div>
+      <div class="floating-doodle doodle-4" aria-hidden="true">♡</div>
+      <div class="floating-doodle doodle-5" aria-hidden="true">✦</div>
+      <div class="floating-doodle doodle-6" aria-hidden="true">🎀</div>
+
+      <!-- Aesthetic Clouds & Sparkles Background Decor -->
+      <div class="cloud cloud-top"></div>
+      <div class="cloud cloud-bottom"></div>
+
+      <!-- Main Typography Content -->
+      <div class="intro-content">
+        <h2 class="script-title split-words">
+          <span class="anim-word" style="--w: 0">Happy</span>
+          <span class="heart-doodle anim-word" style="--w: 1">♡</span>
+        </h2>
+        <h1 class="main-title split-letters marquee-letters" aria-label="BIRTHDAY">
+          <span class="anim-char" style="--i: 0">B</span><span class="anim-char" style="--i: 1">I</span><span class="anim-char" style="--i: 2">R</span><span class="anim-char" style="--i: 3">T</span><span class="anim-char" style="--i: 4">H</span><span class="anim-char" style="--i: 5">D</span><span class="anim-char" style="--i: 6">A</span><span class="anim-char" style="--i: 7">Y</span>
+        </h1>
+        
+        <div class="subtitle-wrap">
+          <span class="doodle-heart">♡</span>
+          <p class="subtitle split-words">
+            <span class="anim-word" style="--w: 0">IT'S</span>
+            <span class="anim-word" style="--w: 1">YOUR</span>
+            <span class="anim-word" style="--w: 2">DAY,</span>
+            <span class="anim-word" style="--w: 3">SHINE!</span>
+            <span class="anim-word" style="--w: 4">&amp;</span>
+            <span class="anim-word" style="--w: 5">ENJOY!</span>
+          </p>
+          <span class="sparkle">✦</span>
+        </div>
+      </div>
+
+      <!-- Cute Aesthetic Framed GIF -->
+      <div class="gif-frame-wrapper">
+        <div class="frame-tape"></div>
+        <div class="gif-polaroid">
+          <img src="assets/birthday-cat.gif" alt="Happy Birthday Sweet Cat" class="birthday-gif">
+          <span class="polaroid-caption">sweet day ♡</span>
+        </div>
+      </div>
+
+      <!-- Audio Element -->
+      <audio id="audioPlayer" src="assets/Happy Birthday Song 🎂.mp3" preload="metadata"></audio>
+
+      <!-- Music Player Widget -->
+      <div class="music-player">
+        <div class="progress-area">
+          <span class="time-current" id="timeCurrent">0:16</span>
+          <div class="track-slider" id="trackSlider">
+            <div class="track-fill" id="trackFill"></div>
+            <div class="track-thumb" id="trackThumb"></div>
+          </div>
+          <span class="time-total" id="timeTotal">3:27</span>
+        </div>
+
+        <div class="player-controls">
+          <button class="control-btn" id="shuffleBtn" aria-label="Shuffle">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
+            </svg>
+          </button>
+
+          <button class="control-btn" id="prevBtn" aria-label="Previous">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+            </svg>
+          </button>
+
+          <button class="play-btn" id="playBtn" aria-label="Play or Pause">
+            <svg class="icon-pause" id="iconPause" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+            <svg class="icon-play hidden" id="iconPlay" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+
+          <button class="control-btn" id="nextBtn" aria-label="Next">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+            </svg>
+          </button>
+
+          <button class="control-btn" id="repeatBtn" aria-label="Repeat">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Floating Next Page Button (Bottom-Right, Does Not Disturb Player) -->
+      <button class="floating-nav-btn nav-next" id="toPage2Btn">
+        <span>Cake Time</span> 🎂 ➔
+      </button>
+
+    </section>
+
+    <!-- ==========================================
+         Page 2: Vintage Cherry Cake & Wish Candle
+         (Completely Different Gingham Checkered Theme)
+         ========================================== -->
+    <section class="card-page cake-page hidden" id="page-2">
+      
+      <!-- Distinct Pink & White Gingham Tablecloth Background -->
+      <div class="bg-gingham" aria-hidden="true"></div>
+      
+      <!-- Scalloped Lace / Doily Accent on Top & Bottom -->
+      <div class="scallop-border scallop-top" aria-hidden="true"></div>
+      <div class="scallop-border scallop-bottom" aria-hidden="true"></div>
+
+      <!-- Floating Cherry & Heart Stickers -->
+      <div class="floating-sticker sticker-cherry-1" aria-hidden="true">🍒</div>
+      <div class="floating-sticker sticker-cherry-2" aria-hidden="true">🍒</div>
+      <div class="floating-sticker sticker-sparkle-1" aria-hidden="true">✨</div>
+      <div class="floating-sticker sticker-sparkle-2" aria-hidden="true">💖</div>
+
+      <!-- Page 2 Header Typography -->
+      <div class="cake-header">
+        <h2 class="script-title split-words">
+          <span class="anim-word" style="--w: 0">Make</span>
+          <span class="anim-word" style="--w: 1">a</span>
+          <span class="anim-word" style="--w: 2">wish</span>
+          <span class="heart-doodle anim-word" style="--w: 3">♡</span>
+        </h2>
+        <h1 class="main-title split-letters candle-letters" aria-label="BLOW THE CANDLES">
+          <span class="anim-char" style="--i: 0">B</span><span class="anim-char" style="--i: 1">L</span><span class="anim-char" style="--i: 2">O</span><span class="anim-char" style="--i: 3">W</span>
+          <span class="char-space">&nbsp;</span>
+          <span class="anim-char" style="--i: 4">T</span><span class="anim-char" style="--i: 5">H</span><span class="anim-char" style="--i: 6">E</span>
+          <span class="char-space">&nbsp;</span>
+          <span class="anim-char" style="--i: 7">C</span><span class="anim-char" style="--i: 8">A</span><span class="anim-char" style="--i: 9">N</span><span class="anim-char" style="--i: 10">D</span><span class="anim-char" style="--i: 11">L</span><span class="anim-char" style="--i: 12">E</span><span class="anim-char" style="--i: 13">S</span>
+        </h1>
+        <p class="cake-subtitle" id="cakeSubtitle">May all your sweetest wishes and dreams come true! ✨</p>
+      </div>
+
+      <!-- Interactive Kawaii Birthday Cake GIF Card -->
+      <div class="cake-interactive-wrap" id="cakeWrap">
+        
+        <div class="kawaii-cake-card">
+          <div class="cake-tape" aria-hidden="true"></div>
+          <img src="assets/kawaii-cake.gif" alt="Happy Birthday Kawaii Cake" class="kawaii-cake-img">
+          <span class="cake-card-caption">happy sweet day ♡</span>
+        </div>
+
+        <div class="cake-instruction-badge">
+          <span class="badge-icon">🎂</span>
+          <span class="badge-text" id="badgeText">Sweet Birthday Wishes ✨</span>
+        </div>
+      </div>
+
+      <!-- Floating Next Page Button (Bottom-Right) -->
+      <button class="floating-nav-btn nav-next" id="toPage3Btn">
+        <span>Birthday Girl</span> 🌸 ➔
+      </button>
+
+    </section>
+
+    <!-- ==========================================
+         Page 3: Birthday Girl Polaroid & Audio Waveform
+         (Distinct Vintage Blush Wallpaper & Floral Aesthetic)
+         ========================================== -->
+    <section class="card-page girl-page hidden" id="page-3">
+      
+      <!-- Distinct Page 3 Background: Delicate Polka Dots & Soft Blush Glow -->
+      <div class="bg-blush-dots" aria-hidden="true"></div>
+      <div class="girl-decor-sparkle sparkle-tl" aria-hidden="true">✦</div>
+      <div class="girl-decor-sparkle sparkle-tr" aria-hidden="true">♡</div>
+      <div class="girl-decor-sparkle sparkle-bl" aria-hidden="true">✨</div>
+      <div class="girl-decor-sparkle sparkle-br" aria-hidden="true">🎀</div>
+
+      <!-- Page 3 Header -->
+      <div class="girl-header">
+        <h2 class="script-title split-words">
+          <span class="anim-word" style="--w: 0">Sweet</span>
+          <span class="anim-word" style="--w: 1">Moments</span>
+          <span class="heart-doodle anim-word" style="--w: 2">♡</span>
+        </h2>
+        <h1 class="main-title split-letters editorial-letters" aria-label="MARIN KITAGAWA">
+          <span class="anim-char" style="--i: 0">M</span><span class="anim-char" style="--i: 1">A</span><span class="anim-char" style="--i: 2">R</span><span class="anim-char" style="--i: 3">I</span><span class="anim-char" style="--i: 4">N</span>
+          <span class="char-space">&nbsp;</span>
+          <span class="anim-char" style="--i: 5">K</span><span class="anim-char" style="--i: 6">I</span><span class="anim-char" style="--i: 7">T</span><span class="anim-char" style="--i: 8">A</span><span class="anim-char" style="--i: 9">G</span><span class="anim-char" style="--i: 10">A</span><span class="anim-char" style="--i: 11">W</span><span class="anim-char" style="--i: 12">A</span>
+        </h1>
+        <p class="girl-subtitle split-words">
+          <span class="anim-word" style="--w: 0">Forever</span>
+          <span class="anim-word" style="--w: 1">lovely,</span>
+          <span class="anim-word" style="--w: 2">radiant</span>
+          <span class="anim-word" style="--w: 3">&amp;</span>
+          <span class="anim-word" style="--w: 4">cherished</span>
+          <span class="anim-word" style="--w: 5">✨</span>
+        </p>
+      </div>
+
+      <!-- 3 Side-by-Side Responsive 3D Flip Polaroid Cards Trio -->
+      <div class="trio-polaroid-container" id="trioPolaroidContainer">
+        
+        <!-- ================= CARD 1 ================= -->
+        <div class="flip-polaroid-card card-tilt-left" data-card="1">
+          <div class="flip-polaroid-inner">
+            
+            <!-- FRONT: Photo 1 -->
+            <div class="polaroid-side polaroid-front">
+              <span class="doodle-top-accent" aria-hidden="true">:)</span>
+              <div class="satin-ribbon-bow ribbon-small" aria-hidden="true">
+                <svg viewBox="0 0 100 80" width="44" height="35" class="ribbon-svg">
+                  <defs>
+                    <linearGradient id="ribbonGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ff9eb5" />
+                      <stop offset="100%" stop-color="#d93b68" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M50 35 C30 10, 10 20, 20 40 C28 52, 45 42, 50 36 Z" fill="url(#ribbonGrad1)" />
+                  <path d="M50 35 C70 10, 90 20, 80 40 C72 52, 55 42, 50 36 Z" fill="url(#ribbonGrad1)" />
+                  <path d="M46 38 C35 50, 22 62, 16 75 C24 72, 30 74, 38 78 C36 64, 44 48, 48 40 Z" fill="url(#ribbonGrad1)" />
+                  <path d="M54 38 C65 50, 78 62, 84 75 C76 72, 70 74, 62 78 C64 64, 56 48, 52 40 Z" fill="url(#ribbonGrad1)" />
+                  <ellipse cx="50" cy="36" rx="6" ry="5" fill="#e63968" />
+                </svg>
+              </div>
+
+              <div class="photo-frame-outer">
+                <img src="assets/marin-1.jpg" alt="Marin Kitagawa Smile" class="girl-photo">
+              </div>
+
+              <div class="card-footer-mini">
+                <span class="card-caption-mini">sweet smile ♡</span>
+                <span class="card-heart-mini">♡</span>
+              </div>
+            </div>
+
+            <!-- BACK: Short Sweet Note 1 (3-4 words) -->
+            <div class="polaroid-side polaroid-back">
+              <div class="letter-washi-tape tape-mini" aria-hidden="true"></div>
+              <div class="note-center-content">
+                <span class="note-sticker">☀️</span>
+                <h3 class="short-note-text">Pure sunshine &amp; joy ♡</h3>
+                <p class="short-note-sub">Always radiant &amp; kind</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= CARD 2 ================= -->
+        <div class="flip-polaroid-card card-center" data-card="2">
+          <div class="flip-polaroid-inner">
+            
+            <!-- FRONT: Photo 2 -->
+            <div class="polaroid-side polaroid-front">
+              <span class="doodle-top-accent" aria-hidden="true">✦</span>
+              <div class="photo-frame-outer">
+                <img src="assets/marin-2.jpg" alt="Marin Kitagawa Peace Sign" class="girl-photo">
+              </div>
+
+              <div class="card-footer-mini">
+                <span class="card-caption-mini">pure energy ✨</span>
+                <span class="card-heart-mini">✨</span>
+              </div>
+            </div>
+
+            <!-- BACK: Short Sweet Note 2 (3-4 words) -->
+            <div class="polaroid-side polaroid-back">
+              <div class="letter-washi-tape tape-mini" aria-hidden="true"></div>
+              <div class="note-center-content">
+                <span class="note-sticker">✨</span>
+                <h3 class="short-note-text">Keep shining bright always!</h3>
+                <p class="short-note-sub">Never lose your spark</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= CARD 3 ================= -->
+        <div class="flip-polaroid-card card-tilt-right" data-card="3">
+          <div class="flip-polaroid-inner">
+            
+            <!-- FRONT: Photo 3 -->
+            <div class="polaroid-side polaroid-front">
+              <span class="doodle-top-accent" aria-hidden="true">♡</span>
+              <div class="photo-frame-outer">
+                <img src="assets/marin-3.jpg" alt="Marin Kitagawa Blushing Smile" class="girl-photo">
+              </div>
+
+              <div class="card-footer-mini">
+                <span class="card-caption-mini">forever loved 💖</span>
+                <span class="card-heart-mini">💖</span>
+              </div>
+            </div>
+
+            <!-- BACK: Short Sweet Note 3 (3-4 words) -->
+            <div class="polaroid-side polaroid-back">
+              <div class="letter-washi-tape tape-mini" aria-hidden="true"></div>
+              <div class="note-center-content">
+                <span class="note-sticker">💖</span>
+                <h3 class="short-note-text">Deeply loved &amp; cherished!</h3>
+                <p class="short-note-sub">Today &amp; every day</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Floating Nav Button to Next Page (Page 4: Balloons) -->
+      <button class="floating-nav-btn nav-next" id="toPage4Btn">
+        <span>Balloons</span> 🎈 ➔
+      </button>
+
+    </section>
+
+    <!-- ==========================================
+         Page 4: Balloons Bouquet & Birthday Wishes
+         (Distinct Quilted Pastel Scrapbook & Aesthetic Stationery)
+         ========================================== -->
+    <section class="card-page wishes-page hidden" id="page-4">
+      
+      <!-- Distinct Page 4 Background: Quilted Diamond Weave & Vintage Glow -->
+      <div class="bg-wishes-pattern" aria-hidden="true"></div>
+      <div class="wishes-corner-tape tape-tl" aria-hidden="true"></div>
+      <div class="wishes-corner-tape tape-tr" aria-hidden="true"></div>
+
+      <!-- Floating Celebratory Stickers -->
+      <div class="floating-wish-sticker sticker-balloon-1" aria-hidden="true">🎈</div>
+      <div class="floating-wish-sticker sticker-rose-1" aria-hidden="true">🌹</div>
+      <div class="floating-wish-sticker sticker-sparkle-3" aria-hidden="true">✨</div>
+      <div class="floating-wish-sticker sticker-heart-3" aria-hidden="true">💖</div>
+
+      <!-- Page 4 Header Typography -->
+      <div class="wishes-header">
+        <h2 class="script-title split-words">
+          <span class="anim-word" style="--w: 0">Warmest</span>
+          <span class="anim-word" style="--w: 1">Blessings</span>
+          <span class="heart-doodle anim-word" style="--w: 2">♡</span>
+        </h2>
+        <h1 class="main-title split-letters festive-letters" aria-label="BALLOONS &amp; WISHES">
+          <span class="title-word-nowrap">
+            <span class="anim-char" style="--i: 0">B</span><span class="anim-char" style="--i: 1">A</span><span class="anim-char" style="--i: 2">L</span><span class="anim-char" style="--i: 3">L</span><span class="anim-char" style="--i: 4">O</span><span class="anim-char" style="--i: 5">O</span><span class="anim-char" style="--i: 6">N</span><span class="anim-char" style="--i: 7">S</span>
+          </span>
+          <span class="char-space">&nbsp;</span>
+          <span class="title-word-nowrap">
+            <span class="anim-char" style="--i: 8">&amp;</span>
+          </span>
+          <span class="char-space">&nbsp;</span>
+          <span class="title-word-nowrap">
+            <span class="anim-char" style="--i: 9">W</span><span class="anim-char" style="--i: 10">I</span><span class="anim-char" style="--i: 11">S</span><span class="anim-char" style="--i: 12">H</span><span class="anim-char" style="--i: 13">E</span><span class="anim-char" style="--i: 14">S</span>
+          </span>
+        </h1>
+        <p class="wishes-subtitle">Another year of magic, joy &amp; being awesome! ✨</p>
+      </div>
+
+      <!-- Main Showcase Grid: Balloon Bouquet & Aesthetic Notepad -->
+      <div class="wishes-showcase-grid">
+
+        <!-- ================= CARD 1: BALLOONS BOUQUET & PINNED MEMO ================= -->
+        <div class="balloon-card-wrapper">
+          <div class="balloon-polaroid-frame">
+            <div class="frame-tape-accent" aria-hidden="true"></div>
+
+            <!-- Balloon Bouquet Stage -->
+            <div class="balloon-stage">
+              <!-- Cluster of 5 Glossy Aesthetic Helium Balloons -->
+              <div class="balloon-cluster">
+                
+                <!-- Metallic Gold Balloon -->
+                <div class="balloon-item balloon-gold" title="Shiny Gold Balloon">
+                  <div class="balloon-gloss"></div>
+                  <div class="balloon-tied-knot"></div>
+                  <div class="balloon-string-curl string-1"></div>
+                </div>
+
+                <!-- Pearl Pink Balloon -->
+                <div class="balloon-item balloon-pink" title="Pastel Pink Balloon">
+                  <div class="balloon-gloss"></div>
+                  <div class="balloon-tied-knot"></div>
+                  <div class="balloon-string-curl string-2"></div>
+                </div>
+
+                <!-- Shimmer Confetti Balloon -->
+                <div class="balloon-item balloon-confetti" title="Rose Gold Confetti Balloon">
+                  <div class="confetti-fleck fleck-1"></div>
+                  <div class="confetti-fleck fleck-2"></div>
+                  <div class="confetti-fleck fleck-3"></div>
+                  <div class="confetti-fleck fleck-4"></div>
+                  <div class="confetti-fleck fleck-5"></div>
+                  <div class="balloon-gloss"></div>
+                  <div class="balloon-tied-knot"></div>
+                  <div class="balloon-string-curl string-3"></div>
+                </div>
+
+                <!-- Deep Magenta Chrome Balloon -->
+                <div class="balloon-item balloon-magenta" title="Magenta Chrome Balloon">
+                  <div class="balloon-gloss"></div>
+                  <div class="balloon-tied-knot"></div>
+                  <div class="balloon-string-curl string-4"></div>
+                </div>
+
+                <!-- Pure Pearl White Balloon -->
+                <div class="balloon-item balloon-pearl" title="Pure Pearl Balloon">
+                  <div class="balloon-gloss"></div>
+                  <div class="balloon-tied-knot"></div>
+                  <div class="balloon-string-curl string-5"></div>
+                </div>
+
+              </div>
+
+              <!-- Romantic Rose Petal & Floral Bouquet Garland Base -->
+              <div class="floral-base-accent" aria-hidden="true">
+                <span class="flower-symbol fl-1">🌸</span>
+                <span class="flower-symbol fl-2">🌹</span>
+                <span class="flower-symbol fl-3">💐</span>
+                <span class="flower-symbol fl-4">🌷</span>
+                <span class="flower-symbol fl-5">🌸</span>
+              </div>
+
+              <!-- Animated Cute Clapping Bunny GIF -->
+              <div class="bunny-gif-container" id="bunnyGifContainer" title="Click for extra love ♡">
+                <img src="assets/cute-bunny.gif" alt="Cute Clapping Birthday Bunny" class="bunny-gif-img">
+              </div>
+
+              <!-- Pinned Awesome Memo Note (Direct Match with Mockup) -->
+              <div class="pinned-memo-badge">
+                <div class="memo-pushpin" aria-hidden="true"></div>
+                <div class="memo-tape-strip" aria-hidden="true"></div>
+                <p class="memo-intro">another</p>
+                <h3 class="memo-headline">year of<br>being</h3>
+                <p class="memo-highlight">awesome!</p>
+                <span class="memo-heart-icon">♥</span>
+              </div>
+
+            </div>
+
+            <div class="balloon-card-footer">
+              <span class="balloon-caption">cheering for you always ♡</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= CARD 2: AESTHETIC STATIONERY NOTEPAD ================= -->
+        <div class="notepad-card-wrapper">
+          <div class="notepad-washi-tape" aria-hidden="true"></div>
+
+          <div class="aesthetic-notepad-card">
+            
+            <!-- Left Spiral / Binder Punch Holes (Direct Match with Mockup) -->
+            <div class="binder-holes-col" aria-hidden="true">
+              <span class="binder-hole"></span>
+              <span class="binder-hole"></span>
+              <span class="binder-hole"></span>
+              <span class="binder-hole"></span>
+              <span class="binder-hole"></span>
+              <span class="binder-hole"></span>
+              <span class="binder-hole"></span>
+            </div>
+
+            <!-- Ruled Stationery Paper Body -->
+            <div class="notepad-sheet-body">
+              
+              <!-- Title Row -->
+              <div class="notepad-title-row">
+                <h3 class="notepad-heading">Birthday wishes:</h3>
+                <span class="notepad-heart-accent">♥</span>
+              </div>
+
+              <!-- Interactive Wish List Items (With Heart Bullets) -->
+              <ul class="wishes-checklist" id="wishesChecklist">
+                <li class="wish-item" tabindex="0">
+                  <span class="wish-heart-bullet">♥</span>
+                  <div class="wish-text-content">
+                    <p class="wish-line">May your days be filled with endless laughter &amp; pure sunshine</p>
+                  </div>
+                  <span class="wish-check-badge">✨</span>
+                </li>
+
+                <li class="wish-item" tabindex="0">
+                  <span class="wish-heart-bullet">♥</span>
+                  <div class="wish-text-content">
+                    <p class="wish-line">May all your sweetest dreams, big &amp; small, come true</p>
+                  </div>
+                  <span class="wish-check-badge">✨</span>
+                </li>
+
+                <li class="wish-item" tabindex="0">
+                  <span class="wish-heart-bullet">♥</span>
+                  <div class="wish-text-content">
+                    <p class="wish-line">Surrounded always by genuine love, peace &amp; true happiness</p>
+                  </div>
+                  <span class="wish-check-badge">✨</span>
+                </li>
+
+                <li class="wish-item" tabindex="0">
+                  <span class="wish-heart-bullet">♥</span>
+                  <div class="wish-text-content">
+                    <p class="wish-line">Keep blooming, inspiring and radiating your beautiful spark</p>
+                  </div>
+                  <span class="wish-check-badge">✨</span>
+                </li>
+
+                <li class="wish-item" tabindex="0">
+                  <span class="wish-heart-bullet">♥</span>
+                  <div class="wish-text-content">
+                    <p class="wish-line">Here’s to another fabulous, unforgettable year of being awesome!</p>
+                  </div>
+                  <span class="wish-check-badge">✨</span>
+                </li>
+              </ul>
+
+              <!-- Sweet Sign-off Note -->
+              <div class="notepad-signoff">
+                <span class="signoff-quote">written with endless love &amp; smiles ♡</span>
+                <div class="signoff-stamp">🌸 FOREVER CHERISHED 🌸</div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation: Go to Page 5 (Grand Celebration Finale) -->
+      <button class="floating-nav-btn nav-next" id="toPage5Btn">
+        <span>Celebration</span> 🎉 ➔
+      </button>
+
+    </section>
+
+    <!-- ==========================================
+         Page 5: Grand Finale & Joyful Celebration
+         (Starry Sparkle Theme, Cute Birthday Cat Mascot & Grand Interactive Card)
+         ========================================== -->
+    <section class="card-page finale-page hidden" id="page-5">
+      
+      <!-- Distinct Page 5 Background: Starry Sparkle & Confetti Radiance -->
+      <div class="bg-finale-sparkles" aria-hidden="true"></div>
+      <div class="finale-corner-ribbon ribbon-tl" aria-hidden="true">🎀</div>
+      <div class="finale-corner-ribbon ribbon-tr" aria-hidden="true">✨</div>
+
+      <!-- Floating Celebration Accents -->
+      <div class="floating-finale-sticker sticker-crown" aria-hidden="true">👑</div>
+      <div class="floating-finale-sticker sticker-popper" aria-hidden="true">🎉</div>
+      <div class="floating-finale-sticker sticker-star" aria-hidden="true">⭐</div>
+      <div class="floating-finale-sticker sticker-party" aria-hidden="true">🥳</div>
+      <div class="floating-finale-sticker sticker-magic" aria-hidden="true">💖</div>
+
+      <!-- Page 5 Header Typography -->
+      <div class="finale-header">
+        <h2 class="script-title split-words">
+          <span class="anim-word" style="--w: 0">Happy</span>
+          <span class="anim-word" style="--w: 1">Birthday</span>
+          <span class="heart-doodle anim-word" style="--w: 2">Queen ♡</span>
+        </h2>
+        <h1 class="main-title split-letters finale-letters" aria-label="CELEBRATION">
+          <span class="anim-char" style="--i: 0">C</span><span class="anim-char" style="--i: 1">E</span><span class="anim-char" style="--i: 2">L</span><span class="anim-char" style="--i: 3">E</span><span class="anim-char" style="--i: 4">B</span><span class="anim-char" style="--i: 5">R</span><span class="anim-char" style="--i: 6">A</span><span class="anim-char" style="--i: 7">T</span><span class="anim-char" style="--i: 8">I</span><span class="anim-char" style="--i: 9">O</span><span class="anim-char" style="--i: 10">N</span>
+        </h1>
+        <p class="finale-subtitle split-words">
+          <span class="anim-word" style="--w: 0">May</span>
+          <span class="anim-word" style="--w: 1">all</span>
+          <span class="anim-word" style="--w: 2">your</span>
+          <span class="anim-word" style="--w: 3">wildest</span>
+          <span class="anim-word" style="--w: 4">wishes</span>
+          <span class="anim-word" style="--w: 5">come</span>
+          <span class="anim-word" style="--w: 6">true!</span>
+          <span class="anim-word" style="--w: 7">✨</span>
+        </p>
+      </div>
+
+      <!-- Main Grand Finale Stage: Interactive 3D Gift Box Unboxing Stage -->
+      <div class="finale-stage-wrapper">
+
+        <!-- Hint Pill -->
+        <div class="gift-tap-hint" id="giftTapHint">
+          <span class="hint-sparkle">✨</span>
+          <span class="hint-text">Tap the Gift Box to Open Your Birthday Surprise!</span>
+          <span class="hint-sparkle">🎁</span>
+        </div>
+
+        <!-- 3D Interactive Birthday Gift Box Experience -->
+        <div class="surprise-gift-experience" id="surpriseGiftBox" tabindex="0" role="button" aria-label="Tap to open your birthday surprise gift">
+          
+          <!-- Outer Floating Aura Rings -->
+          <div class="gift-aura-ring ring-outer" aria-hidden="true"></div>
+          <div class="gift-aura-ring ring-inner" aria-hidden="true"></div>
+
+          <!-- 3D Gift Box Visual Body -->
+          <div class="gift-box-3d">
+            
+            <!-- Gift Lid with Big Satin Ribbon Bow -->
+            <div class="gift-lid">
+              <div class="lid-ribbon-v"></div>
+              <div class="lid-ribbon-h"></div>
+              <!-- Big Satin Bow -->
+              <div class="satin-bow-knot">
+                <div class="bow-loop bow-left"></div>
+                <div class="bow-loop bow-right"></div>
+                <div class="bow-center-pearl"></div>
+                <div class="bow-tail tail-left"></div>
+                <div class="bow-tail tail-right"></div>
+              </div>
+            </div>
+
+            <!-- Gift Base -->
+            <div class="gift-base">
+              <div class="base-ribbon-v"></div>
+              <div class="base-ribbon-h"></div>
+              <div class="gift-tag-pendant">
+                <span class="tag-string"></span>
+                <span class="tag-body">For You ♡</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Unboxed Surprise Content (Bursting Out on Click) -->
+          <div class="gift-unboxed-content" id="giftUnboxedContent" aria-hidden="true">
+            
+            <!-- Radiating Celebration Halo Glow -->
+            <div class="celebration-halo-glow"></div>
+
+            <!-- Grand Celebration Birthday Cake GIF (from Giphy) -->
+            <div class="unboxed-mascot-wrap">
+              <span class="mascot-crown-float" aria-hidden="true">👑</span>
+              <img src="assets/celebration-cake.gif" alt="Happy Birthday Celebration Cake" class="unboxed-cake-gif" id="celebrationCakeGif">
+            </div>
+
+            <!-- Grand Birthday Queen Trophy Card -->
+            <div class="trophy-celebration-card">
+              <div class="trophy-ribbon-banner">★ QUEEN OF THE DAY ★</div>
+              <h3 class="trophy-name">Marin Kitagawa</h3>
+              <p class="trophy-wishes">
+                "May your life always be as radiant, joyful, and magical as you make the world feel every single day!"
+              </p>
+              <div class="trophy-footer-decor">
+                <span>🌸</span>
+                <span>💖</span>
+                <span>🎂</span>
+                <span>✨</span>
+                <span>🎀</span>
+              </div>
+            </div>
+
+            <!-- Action Button to Trigger More Fireworks -->
+            <button class="celebrate-more-btn" id="blastCelebrationBtn" title="Launch More Fireworks!">
+              <span>🎉 Fire Again! ✨</span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+    </section>
+
+    <!-- Full-Screen Balloon Blast & Aerial Fireworks Container -->
+    <div class="balloon-blast-container" id="balloonBlastContainer" aria-hidden="true"></div>
+
+    <!-- Celebration Confetti & Streamers Container -->
+    <div class="confetti-container" id="confettiContainer" aria-hidden="true"></div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
