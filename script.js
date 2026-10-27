@@ -359,20 +359,21 @@ document.addEventListener('DOMContentLoaded', () => {
       '#ff8fa3'  // blush rose
     ];
 
+    const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window);
     const containerW = balloonBlastContainer.clientWidth || window.innerWidth;
     const containerH = balloonBlastContainer.clientHeight || window.innerHeight;
 
-    const balloonCount = 6;
+    const balloonCount = isMobile ? 4 : 6;
     for (let i = 0; i < balloonCount; i++) {
       const balloon = document.createElement('div');
       balloon.className = 'blast-balloon';
 
       // Spread naturally across width with organic stagger
-      const startLeft = 12 + (i * 15) + (Math.random() * 6 - 3);
+      const startLeft = isMobile ? (10 + (i * 24) + (Math.random() * 4 - 2)) : (12 + (i * 15) + (Math.random() * 6 - 3));
       const color = balloonColors[i % balloonColors.length];
-      const bSize = 52 + Math.random() * 14;
+      const bSize = (isMobile ? 44 : 52) + Math.random() * 12;
       const riseTime = 1.3 + (i * 0.08) + Math.random() * 0.2; // 1.3s to 1.7s
-      const driftX = (Math.random() - 0.5) * 40;
+      const driftX = (Math.random() - 0.5) * (isMobile ? 24 : 40);
       const targetYVh = 48 + Math.random() * 24; // 48vh to 72vh rise
       const delay = i * 0.08; // Staggered release: smooth wave
 
@@ -407,6 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Radiant Fireworks Pop Burst (Lag-Free Batch DOM Construction)
   const createPopBurst = (x, y, baseColor, isGrand = false) => {
     if (!balloonBlastContainer) return;
+    const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window);
     const burst = document.createElement('div');
     burst.className = 'blast-pop-burst';
     burst.style.left = `${x}px`;
@@ -420,12 +422,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Dual Shockwave Rings
     const ring1 = document.createElement('div');
     ring1.className = 'blast-ring';
-    ring1.style.setProperty('--ring-size', isGrand ? '190px' : '130px');
+    ring1.style.setProperty('--ring-size', isGrand ? (isMobile ? '140px' : '190px') : (isMobile ? '100px' : '130px'));
     burst.appendChild(ring1);
 
     const ring2 = document.createElement('div');
     ring2.className = 'blast-ring ring-secondary';
-    ring2.style.setProperty('--ring-size', isGrand ? '150px' : '100px');
+    ring2.style.setProperty('--ring-size', isGrand ? (isMobile ? '110px' : '150px') : (isMobile ? '80px' : '100px'));
     burst.appendChild(ring2);
 
     // 3. Fireworks Colors Palette
@@ -440,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Batch generate sparks in a DocumentFragment for single reflow
     const fragment = document.createDocumentFragment();
-    const sparkCount = isGrand ? 28 : 18; // visually dense, 60fps smooth
+    const sparkCount = isGrand ? (isMobile ? 18 : 28) : (isMobile ? 12 : 18); // visually dense, 60fps smooth
     const starChars = ['✦', '★', '✧', '✨', '💖'];
 
     for (let j = 0; j < sparkCount; j++) {
@@ -449,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const sColor = fireworkColors[j % fireworkColors.length];
 
       const angle = (j / sparkCount) * 2 * Math.PI + ((Math.random() - 0.5) * 0.25);
-      const distance = (isGrand ? 70 : 45) + Math.random() * (isGrand ? 85 : 55);
+      const distance = (isGrand ? 50 : 35) + Math.random() * (isGrand ? (isMobile ? 55 : 85) : 50);
       const fx = Math.cos(angle) * distance;
       const fy = Math.sin(angle) * distance;
       const duration = (isGrand ? 0.85 : 0.7) + Math.random() * 0.3;
@@ -464,11 +466,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isStar) {
         spark.className = 'firework-star';
         spark.textContent = starChars[j % starChars.length];
-        spark.style.setProperty('--star-size', `${(isGrand ? 15 : 12) + (j % 4)}px`);
+        spark.style.setProperty('--star-size', `${(isGrand ? (isMobile ? 13 : 15) : 12) + (j % 4)}px`);
       } else {
         spark.className = 'firework-spark';
         spark.style.backgroundColor = sColor;
-        spark.style.setProperty('--spark-size', `${(isGrand ? 4.5 : 3.8) + (j % 3)}px`);
+        spark.style.setProperty('--spark-size', `${(isGrand ? 4 : 4.5) + (j % 2)}px`);
       }
 
       fragment.appendChild(spark);
@@ -485,6 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Grand Aerial Fireworks Finale (Multiple Rockets Shooting to the Sky)
   const launchGrandFireworksShow = () => {
     if (!balloonBlastContainer) return;
+    const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window);
 
     // Ambient Screen Flash Glow
     const glowFlash = document.createElement('div');
@@ -492,8 +495,12 @@ document.addEventListener('DOMContentLoaded', () => {
     balloonBlastContainer.appendChild(glowFlash);
     setTimeout(() => glowFlash.remove(), 700);
 
-    // Sequence of 5 grand aerial rockets detonating in the sky
-    const grandRockets = [
+    // Sequence of grand aerial rockets detonating in the sky
+    const grandRockets = isMobile ? [
+      { left: 25, targetY: 28, delay: 180, color: '#ffd700' },
+      { left: 75, targetY: 24, delay: 550, color: '#ff1361' },
+      { left: 50, targetY: 18, delay: 1000, color: '#00f0ff' }
+    ] : [
       { left: 24, targetY: 28, delay: 200, color: '#ffd700' },
       { left: 74, targetY: 24, delay: 500, color: '#ff1361' },
       { left: 48, targetY: 18, delay: 850, color: '#00f0ff' },
@@ -527,10 +534,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3D Spiraling Metallic Streamers
   const triggerCelebrationStreamers = () => {
     if (!confettiContainer) return;
+    const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window);
     const streamerColors = ['#ffd700', '#ff1361', '#ff8fa3', '#00f0ff', '#ffffff', '#a855f7'];
 
     const fragment = document.createDocumentFragment();
-    for (let i = 0; i < 14; i++) {
+    const streamerCount = isMobile ? 8 : 14;
+    for (let i = 0; i < streamerCount; i++) {
       const streamer = document.createElement('div');
       streamer.className = 'streamer-spiral';
       streamer.style.left = `${Math.random() * 100}%`;
@@ -549,10 +558,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Full Screen Confetti Cannon (Batched)
   const triggerConfetti = () => {
     if (!confettiContainer) return;
+    const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window);
     const colors = ['#ff6b8b', '#ffb3c6', '#ffd166', '#ffffff', '#f72585', '#00f0ff', '#a855f7'];
 
     const fragment = document.createDocumentFragment();
-    for (let i = 0; i < 40; i++) {
+    const confettiCount = isMobile ? 22 : 40;
+    for (let i = 0; i < confettiCount; i++) {
       const piece = document.createElement('div');
       piece.className = 'confetti-piece';
       piece.style.left = `${Math.random() * 100}%`;
