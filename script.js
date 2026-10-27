@@ -217,13 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
         page5.classList.remove('hidden');
         triggerPageAnimations(page5);
       }
-      // Grand entrance celebration: Fireworks + Balloons + Confetti
-      launchBalloonBlast();
-      triggerConfetti();
-      triggerCelebrationStreamers();
-      setTimeout(() => {
-        launchGrandFireworksShow();
-      }, 500);
     });
   }
 

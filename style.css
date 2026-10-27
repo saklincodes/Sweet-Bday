@@ -2506,21 +2506,22 @@ html, body {
   animation: p2-candle-spark-char 0.8s ease-out calc(0.28s + var(--i) * 0.045s) both;
 }
 
+.candle-letters .anim-char {
+  text-shadow: 0 2px 6px rgba(137, 34, 68, 0.2);
+}
+
 @keyframes p2-candle-spark-char {
   0% {
     opacity: 0;
     transform: scale(0.2) translateY(24px);
-    text-shadow: 0 0 25px #ffd700, 0 0 15px #ff2a70;
   }
-  45% {
+  50% {
     opacity: 0.95;
-    transform: scale(1.28) translateY(-6px);
-    text-shadow: 0 0 20px #ff1361, 0 0 10px #ffd700;
+    transform: scale(1.22) translateY(-5px);
   }
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
-    text-shadow: 0 2px 4px rgba(137, 34, 68, 0.15);
   }
 }
 
@@ -3704,14 +3705,8 @@ html, body {
    MOBILE GPU PERFORMANCE OPTIMIZATIONS (High FPS on Phones)
    ==================================================== */
 @media (max-width: 768px) {
-  /* 1. Disable expensive real-time backdrop blur on mobile GPUs */
-  .music-player,
-  .floating-nav-btn,
-  .corner-tape,
-  .cake-instruction-badge,
-  .balloon-item,
-  .gift-tap-hint,
-  .polaroid-side {
+  /* 1. Globally disable expensive real-time backdrop-filter on mobile GPUs */
+  *, *::before, *::after {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }
@@ -3725,12 +3720,35 @@ html, body {
     background: rgba(255, 255, 255, 0.98) !important;
   }
 
+  .cake-subtitle,
+  .wishes-subtitle,
+  .finale-subtitle,
+  .girl-subtitle,
+  .gift-tap-hint {
+    background: rgba(255, 255, 255, 0.94) !important;
+  }
+
   /* 2. Lighten background texture overdraw on mobile screens */
   .bg-texture-lines {
     background-image: 
       linear-gradient(to right, rgba(255, 255, 255, 0.22) 1.5px, transparent 1.5px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.22) 1.5px, transparent 1.5px) !important;
     background-size: 32px 32px !important;
+  }
+
+  .bg-gingham {
+    background-size: 32px 32px !important;
+  }
+
+  .bg-finale-sparkles {
+    background-image: 
+      radial-gradient(circle, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.65) 2px, transparent 2.5px),
+      radial-gradient(circle, rgba(255, 235, 180, 0.45) 0%, rgba(255, 235, 180, 0.45) 1.5px, transparent 2px) !important;
+    background-size: 36px 36px, 24px 24px !important;
+  }
+
+  .gift-aura-ring {
+    animation: none !important;
   }
 
   /* 3. Promote animated elements to dedicated GPU compositor layers */
