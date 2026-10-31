@@ -26,17 +26,23 @@
 html, body {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
+  height: 100dvh;
+  overflow: hidden;
   font-family: var(--font-sans);
   color: var(--text-wine);
   background: var(--bg-gradient);
   user-select: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* --- Full Screen App Container --- */
 .reel-container {
   width: 100%;
+  height: 100%;
+  height: 100dvh;
   min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -3883,6 +3889,230 @@ html, body {
   .note-sticker {
     font-size: 1.1rem !important;
     margin-bottom: 2px !important;
+  }
+
+  /* 6. Universal Card-Page Mobile Viewport Lock (100dvh) */
+  .card-page {
+    height: 100% !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Universal Floating Navigation Buttons */
+  .floating-nav-btn {
+    padding: clamp(5px, 0.9vh, 8px) clamp(10px, 2.4vw, 16px) !important;
+    font-size: clamp(0.7rem, 2vw, 0.82rem) !important;
+    bottom: clamp(12px, 1.8vh, 18px) !important;
+    right: clamp(12px, 3vw, 24px) !important;
+    z-index: 50 !important;
+  }
+
+  .floating-nav-btn.nav-prev {
+    left: clamp(12px, 3vw, 24px) !important;
+  }
+
+  /* 7. Page 1 (Intro & Music Player) Mobile Screen Fitting */
+  .intro-page {
+    padding: clamp(8px, 1.4vh, 14px) clamp(12px, 3.5vw, 24px) clamp(12px, 1.8vh, 18px) !important;
+    justify-content: space-evenly !important;
+  }
+
+  .intro-content {
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .intro-content .script-title {
+    font-size: clamp(1.8rem, 4.4vh, 3rem) !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+
+  .intro-content .main-title {
+    font-size: clamp(2rem, 5vh, 3.4rem) !important;
+    line-height: 1.05 !important;
+    margin: 2px 0 !important;
+  }
+
+  .intro-content .subtitle {
+    font-size: clamp(0.7rem, 1.7vh, 0.88rem) !important;
+  }
+
+  .intro-content .subtitle-wrap {
+    margin-top: 2px !important;
+  }
+
+  .gif-frame-wrapper {
+    margin: clamp(4px, 0.8vh, 10px) auto !important;
+    flex-shrink: 1 !important;
+    min-height: 0 !important;
+  }
+
+  .gif-polaroid {
+    padding: clamp(6px, 1vh, 9px) clamp(6px, 1vh, 9px) clamp(7px, 1.1vh, 10px) !important;
+    border-radius: 16px !important;
+  }
+
+  .birthday-gif {
+    width: clamp(125px, 18vh, 185px) !important;
+    height: clamp(125px, 18vh, 185px) !important;
+    border-radius: 10px !important;
+  }
+
+  .polaroid-caption {
+    font-size: clamp(0.92rem, 1.7vh, 1.18rem) !important;
+    margin-top: 3px !important;
+  }
+
+  .intro-page .music-player {
+    margin-bottom: clamp(48px, 7vh, 60px) !important;
+    max-width: 440px !important;
+    gap: clamp(5px, 1vh, 10px) !important;
+  }
+
+  .progress-area {
+    gap: 8px !important;
+    font-size: clamp(0.72rem, 1.3vh, 0.85rem) !important;
+  }
+
+  .player-controls {
+    padding: 0 clamp(4px, 1.5vw, 10px) !important;
+  }
+
+  .control-btn svg {
+    width: clamp(18px, 2.4vh, 22px) !important;
+    height: clamp(18px, 2.4vh, 22px) !important;
+  }
+
+  .play-btn {
+    width: clamp(42px, 5.4vh, 50px) !important;
+    height: clamp(42px, 5.4vh, 50px) !important;
+  }
+
+  .play-btn svg {
+    width: clamp(20px, 2.6vh, 24px) !important;
+    height: clamp(20px, 2.6vh, 24px) !important;
+  }
+
+  /* 8. Page 2 (Vintage Cherry Cake) Mobile Screen Fitting */
+  .cake-page {
+    padding: clamp(8px, 1.4vh, 14px) clamp(12px, 3.5vw, 24px) clamp(52px, 7.5vh, 66px) !important;
+    justify-content: space-evenly !important;
+  }
+
+  .cake-header {
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .cake-header .script-title {
+    font-size: clamp(1.8rem, 4.2vh, 2.6rem) !important;
+    line-height: 1 !important;
+  }
+
+  .cake-header .main-title {
+    font-size: clamp(1.5rem, 3.8vh, 2.4rem) !important;
+    line-height: 1.1 !important;
+    margin: 2px 0 !important;
+  }
+
+  .cake-subtitle {
+    font-size: clamp(0.7rem, 1.5vh, 0.85rem) !important;
+    padding: 3px 12px !important;
+    margin-top: 2px !important;
+  }
+
+  .cake-interactive-wrap {
+    margin: auto 0 !important;
+    flex-shrink: 1 !important;
+    min-height: 0 !important;
+  }
+
+  .kawaii-cake-card {
+    padding: clamp(7px, 1vh, 10px) clamp(7px, 1vh, 10px) clamp(8px, 1.2vh, 12px) !important;
+    border-radius: 16px !important;
+  }
+
+  .kawaii-cake-img {
+    width: clamp(135px, 22vh, 205px) !important;
+    height: clamp(135px, 22vh, 205px) !important;
+  }
+
+  .cake-card-caption {
+    font-size: clamp(0.92rem, 1.7vh, 1.18rem) !important;
+    margin-top: 3px !important;
+  }
+
+  .cake-instruction-badge {
+    margin-top: 5px !important;
+    padding: 3px 12px !important;
+    font-size: clamp(0.7rem, 1.4vh, 0.82rem) !important;
+  }
+
+  /* 9. Page 5 (Grand Finale & Celebration) Mobile Screen Fitting */
+  .finale-page {
+    padding: clamp(8px, 1.4vh, 14px) clamp(12px, 3.5vw, 24px) clamp(12px, 1.8vh, 18px) !important;
+    justify-content: space-evenly !important;
+  }
+
+  .finale-header {
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .finale-header .script-title {
+    font-size: clamp(1.7rem, 4.2vh, 2.5rem) !important;
+    line-height: 1 !important;
+  }
+
+  .finale-header .main-title {
+    font-size: clamp(1.7rem, 4.2vh, 2.6rem) !important;
+    line-height: 1.1 !important;
+    margin: 2px 0 !important;
+  }
+
+  .finale-subtitle {
+    font-size: clamp(0.7rem, 1.5vh, 0.85rem) !important;
+    padding: 3px 12px !important;
+  }
+
+  .gift-tap-hint {
+    padding: 3px 10px !important;
+    font-size: clamp(0.66rem, 1.4vh, 0.78rem) !important;
+    margin-bottom: 4px !important;
+  }
+
+  .gift-box-3d {
+    width: clamp(105px, 16vh, 140px) !important;
+    height: clamp(105px, 16vh, 140px) !important;
+  }
+
+  .unboxed-cake-gif {
+    width: clamp(80px, 11vh, 115px) !important;
+    height: clamp(80px, 11vh, 115px) !important;
+  }
+
+  .trophy-celebration-card {
+    padding: clamp(6px, 1vh, 10px) clamp(10px, 2.5vw, 14px) !important;
+    max-width: clamp(250px, 78vw, 300px) !important;
+  }
+
+  .trophy-name {
+    font-size: clamp(1.05rem, 2vh, 1.35rem) !important;
+  }
+
+  .trophy-wishes {
+    font-size: clamp(0.68rem, 1.3vh, 0.8rem) !important;
+    margin: 2px 0 4px !important;
+  }
+
+  .celebrate-more-btn {
+    padding: 5px 16px !important;
+    font-size: clamp(0.72rem, 1.4vh, 0.84rem) !important;
+    margin-top: 4px !important;
   }
 }
 
